@@ -1,0 +1,12 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Archivos temporales del editor
+*.tmp
+
+# Configuración y credenciales locales
+.env
+.env.*
+!.env.example
+export_credentials.cfg

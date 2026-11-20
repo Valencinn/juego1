@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://c0jtd88kh7jhq"]
+
+[ext_resource type="PackedScene" uid="uid://8q88bc0g6hvq" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" path="res://targets/practice_target.tscn" id="2_target"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ig7tw"]
+sky_material = SubResource("ProceduralSkyMaterial_7dm0k")
+
+[sub_resource type="Environment" id="Environment_0xm2m"]
+background_mode = 2
+sky = SubResource("Sky_ig7tw")
+glow_enabled = true
+
+[node name="Main" type="Node3D" unique_id=266301300]
+transform = Transform3D(0.5, 0, 0, 0, -0.37624076, 0.32930666, 0, -0.32930666, -0.37624076, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=362136902]
+transform = Transform3D(0.2958331, -0.92606705, -0.23427069, -0.6215351, -0.00037389994, -0.78338623, 0.7253804, 0.37735897, -0.57569367, 0, -309.02347, 270.47437)
+light_energy = 2.5
+shadow_enabled = true
+directional_shadow_max_distance = 2.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1659501842]
+environment = SubResource("Environment_0xm2m")
+
+[node name="Suelo Spawn" type="CSGBox3D" parent="." unique_id=868807499]
+transform = Transform3D(1, 0, 0, 0, 0.75324446, 0.65774053, 0, -0.65774053, 0.75324446, 0.017877579, 0.015660923, 0.017934704)
+use_collision = true
+size = Vector3(35.778347, 0.3, 35.876266)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=826328339]
+transform = Transform3D(0.99999493, 9.0390444e-05, -0.0029372098, -0.0018604875, -0.75420815, -0.65663165, -0.002274615, 0.65663356, -0.7542055, 10.620172, -0.077093124, 4.4482546)
+use_collision = true
+size = Vector3(14.51062, 6.367676, 0.3)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGBox3D" unique_id=1023855227]
+transform = Transform3D(0.9999964, 0.002936373, 0.00011437945, 9.039439e-05, 0.008168386, -0.99996686, -0.0029371977, 0.99996144, 0.008168099, -2.450056, -0.60390544, 0.58931327)
+operation = 2
+radius = 3.208496
+height = 7.676758
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=486485267]
+transform = Transform3D(0.9999674, 0.00011904538, 0.007972906, 0.005325082, -0.7542074, -0.6566131, 0.0059350696, 0.65663445, -0.7541844, 0.07723975, 9.585686, 15.4897785)
+use_collision = true
+size = Vector3(36.088596, 6.367676, 0.3)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="." unique_id=782304846]
+transform = Transform3D(0.9999674, 0.00011904538, 0.007972906, 0.005325082, -0.7542074, -0.6566131, 0.0059350696, 0.65663445, -0.7541844, 0.10891025, -13.914415, -11.359659)
+use_collision = true
+size = Vector3(36.025253, 6.367676, 0.3)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=267919971]
+transform = Transform3D(-0.0022992217, 0.0026264442, 0.99999374, 0.6586848, -0.75240934, 0.0034906508, 0.75241417, 0.65868855, -4.377216e-08, 18.006449, -2.208681, 2.012617)
+use_collision = true
+size = Vector3(35.841736, 6.367676, 0.3)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=1521597617]
+transform = Transform3D(-0.0022992217, 0.0026264442, 0.99999374, 0.6586848, -0.75240934, 0.0034906508, 0.75241417, 0.65868855, -4.377216e-08, 3.4461064, 4.7065744, 9.911896)
+use_collision = true
+size = Vector3(14.844574, 6.367676, 0.3)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1406715954]
+transform = Transform3D(-0.0022992217, 0.0026264442, 0.99999374, 0.6586848, -0.75240934, 0.0034906508, 0.75241417, 0.65868855, -4.377216e-08, -17.774488, -2.208681, 2.012617)
+use_collision = true
+size = Vector3(35.841736, 6.367676, 0.3)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1221402065]
+transform = Transform3D(1, 0, 0, 0, 0.73391616, 0.6792386, 0, -0.6792386, 0.73391616, -9.443129, -9.2068405, -5.0897346)
+use_collision = true
+radius = 1.7470703
+height = 7.5351563
+sides = 20
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="." unique_id=924415644]
+transform = Transform3D(1, 0, 0, 0, 0.7597227, 0.6502468, 0, -0.6502468, 0.7597227, 11.498314, -7.594206, -7.92634)
+use_collision = true
+size = Vector3(2.3730469, 0.6694336, 1.0811768)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="." unique_id=1808335565]
+transform = Transform3D(0.48399884, 0.0096824765, 0.8750149, -0.57633185, 0.7559623, 0.31042233, -0.658473, -0.654543, 0.37146524, 5.927774, -7.5942044, -7.926338)
+use_collision = true
+size = Vector3(2.3730469, 0.6694336, 1.0811768)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="." unique_id=81120152]
+transform = Transform3D(0.78653014, 0.0068331063, 0.617514, -0.40672788, 0.7581671, 0.50966126, -0.46469638, -0.6520241, 0.5991004, 11.498314, -8.105891, -7.478485)
+use_collision = true
+size = Vector3(2.3730469, 0.6694336, 1.0811768)
+
+[node name="Player" parent="." unique_id=1712287899 instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6212654, 0.30477196, -5.474618)
+
+[node name="PracticeLeft" parent="." instance=ExtResource("2_target")]
+top_level = true
+position = Vector3(3.2, 1.65, -8.1)
+
+[node name="PracticeCenter" parent="." instance=ExtResource("2_target")]
+top_level = true
+position = Vector3(4.62, 1.65, -8.4)
+
+[node name="PracticeRight" parent="." instance=ExtResource("2_target")]
+top_level = true
+position = Vector3(6.1, 1.65, -8.1)

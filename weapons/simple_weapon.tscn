@@ -1,0 +1,130 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://weapons/simple_weapon.gd" id="1_weapon"]
+[ext_resource type="Script" path="res://weapons/reticle.gd" id="2_reticle"]
+
+[sub_resource type="StandardMaterial3D" id="Metal"]
+shading_mode = 0
+albedo_color = Color(0.16, 0.19, 0.23, 1)
+no_depth_test = true
+
+[sub_resource type="StandardMaterial3D" id="Grip"]
+shading_mode = 0
+albedo_color = Color(0.055, 0.065, 0.08, 1)
+no_depth_test = true
+
+[sub_resource type="StandardMaterial3D" id="Accent"]
+shading_mode = 0
+albedo_color = Color(0.8, 0.45, 0.14, 1)
+no_depth_test = true
+
+[sub_resource type="StandardMaterial3D" id="FlashMaterial"]
+shading_mode = 0
+albedo_color = Color(1, 0.83, 0.32, 1)
+no_depth_test = true
+
+[sub_resource type="BoxMesh" id="Slide"]
+size = Vector3(0.13, 0.13, 0.4)
+
+[sub_resource type="BoxMesh" id="Handle"]
+size = Vector3(0.105, 0.23, 0.13)
+
+[sub_resource type="BoxMesh" id="Rail"]
+size = Vector3(0.14, 0.035, 0.3)
+
+[sub_resource type="CylinderMesh" id="Barrel"]
+top_radius = 0.035
+bottom_radius = 0.035
+height = 0.15
+
+[sub_resource type="BoxMesh" id="Sight"]
+size = Vector3(0.025, 0.035, 0.035)
+
+[sub_resource type="SphereMesh" id="FlashMesh"]
+radius = 0.045
+height = 0.15
+
+[sub_resource type="BoxMesh" id="Guard"]
+size = Vector3(0.035, 0.08, 0.16)
+
+[node name="Weapon" type="Node3D"]
+script = ExtResource("1_weapon")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="Slide" type="MeshInstance3D" parent="Model"]
+position = Vector3(0.24, -0.19, -0.51)
+mesh = SubResource("Slide")
+material_override = SubResource("Metal")
+cast_shadow = 0
+
+[node name="Grip" type="MeshInstance3D" parent="Model"]
+position = Vector3(0.24, -0.35, -0.38)
+rotation = Vector3(-0.2, 0, 0)
+mesh = SubResource("Handle")
+material_override = SubResource("Grip")
+cast_shadow = 0
+
+[node name="Rail" type="MeshInstance3D" parent="Model"]
+position = Vector3(0.24, -0.27, -0.53)
+mesh = SubResource("Rail")
+material_override = SubResource("Grip")
+cast_shadow = 0
+
+[node name="Barrel" type="MeshInstance3D" parent="Model"]
+position = Vector3(0.24, -0.19, -0.72)
+rotation = Vector3(1.5707963, 0, 0)
+mesh = SubResource("Barrel")
+material_override = SubResource("Grip")
+cast_shadow = 0
+
+[node name="FrontSight" type="MeshInstance3D" parent="Model"]
+position = Vector3(0.24, -0.11, -0.66)
+mesh = SubResource("Sight")
+material_override = SubResource("Accent")
+cast_shadow = 0
+
+[node name="RearSight" type="MeshInstance3D" parent="Model"]
+position = Vector3(0.24, -0.11, -0.35)
+mesh = SubResource("Sight")
+material_override = SubResource("Grip")
+cast_shadow = 0
+
+[node name="TriggerGuard" type="MeshInstance3D" parent="Model"]
+position = Vector3(0.24, -0.32, -0.49)
+mesh = SubResource("Guard")
+material_override = SubResource("Grip")
+cast_shadow = 0
+
+[node name="Muzzle" type="Marker3D" parent="Model"]
+position = Vector3(0.24, -0.19, -0.805)
+
+[node name="Flash" type="MeshInstance3D" parent="Model/Muzzle"]
+visible = false
+rotation = Vector3(1.5707963, 0, 0)
+mesh = SubResource("FlashMesh")
+material_override = SubResource("FlashMaterial")
+cast_shadow = 0
+
+[node name="Light" type="OmniLight3D" parent="Model/Muzzle"]
+visible = false
+light_color = Color(1, 0.7, 0.3, 1)
+light_energy = 2.0
+omni_range = 3.0
+shadow_enabled = false
+
+[node name="ShotSound" type="AudioStreamPlayer" parent="."]
+volume_db = -12.0
+max_polyphony = 4
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Reticle" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_reticle")
